@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row text-center">
+            <h1 class="col-12">Create a new Campground</h1>
+            <div style="width: 350px;margin: 0 auto;">
+                    <form action="/campgrounds" method="POST">
+                
+                        <br>
+                        <input type="text" name="name" class="form-control" placeholder="New campground" autocomplete="off" required>
+                        <br>
+                        
+                        <input type="text" name="image" class="form-control" placeholder="Camp image link"  autocomplete="off" required>
+                        <br>
+
+                        <input type="number" name="price" class="form-control" placeholder="Rates of the camp"  autocomplete="off" required min="0.00" step="0.50">
+                        <br>
+
+                        
+
+                        <textarea  name="descrpt" class="form-control" placeholder="Description of the camp" autocomplete="off" required></textarea>
+                        <br>
+
+                        <button class="btn-block btn-lg btn-primary">Submit</button>
+                        
+                    </form>
+                    
+            </div>
+            <a href="/campgrounds"  class=" col-12 mt-3">Go back</a>
+    </div>
+    
+</div>
+
+
+
+<br><br>
+
+
+<% include ../partials/footer %>

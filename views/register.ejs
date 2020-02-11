@@ -1,0 +1,26 @@
+<% include partials/header %>
+
+
+<h1 class="text-center mt-5 pt-5">Sign-Up</h1>
+<br>
+<div class="container" >
+    <div class=" d-flex justify-content-center">
+           
+        <div id="formCont" class="p-4">
+            <form action="/register" method="POST">
+    
+            <h5>Enter you username:</h5>
+            <input type="text" name="username" class="form-control" placeholder="USERNAME" required autocomplete="off">
+            <br>
+            <h5>Enter you password:</h5>
+            <input type="password" name="password" class="form-control" placeholder="PASSWORD" required autocomplete="off">
+            <br>
+            <input type="submit" class="btn btn-primary" value="LOGIN">
+            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<% include partials/footer %>

@@ -1,0 +1,145 @@
+<% include ../partials/header %>
+
+<div class="container mt-4 d-flex flex-column ">
+
+    <div class="row justify-content-center">
+      
+
+        <div class="col-12 col-md-9" >
+
+            <div class="card mb-5" >
+              
+                <img src="<%= campground.image %>" alt="Image load fail" class="card-img-top" id="showImg" width="400px" height="400px"> 
+                
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                                <h2 class="card-title pt-1" style="display:inline"><%= campground.name %></h2>
+                                <h5 class="float-right pt-2">$<%= campground.price %>/night</h5>
+                        </div>
+                        <div class="col-12">
+                            <h6>Posted by : <%= campground.author.username %></h6>
+                        </div>
+                    </div> 
+                    
+                    <p class="card-text mt-2"><%= campground.description %></p>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){%>
+
+                    <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm" >Edit campground</a>
+                    <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" style="display:inline">
+                        <button class="btn btn-danger btn-sm">Delete campground</button>
+                    </form>
+                    <% } %>
+                </div>
+            
+            </div>
+
+            <div class="comments card p-4 mb-5">
+                    <div class="row mb-4" >
+                        <div class="col-12">
+                                <h3 style="display:inline">Reviews</h3>
+                                <a href="/campgrounds/<%= campground._id %>/comments/new" class="btn btn-primary col-6 col-md-3 float-right">Leave a review</a>
+                        </div>
+                    </div>
+                    
+                    <br>
+
+                    <div id="reviewsBox">
+                            <% campground.comments.forEach(function(comment){ %>
+
+                    <div id="commentBox"  >
+                        <div class="row">
+                            <div class="col-12 ">
+                                    <b><%= comment.author.username %></b> 
+                                   
+                                   
+                                    <% if(currentUser && comment.author.id.equals(currentUser._id)){%>
+                                    <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id%>?_method=DELETE" method="POSt" style="display:inline" class="float-right">
+                                        <button class="btn pl-2 mb-3 m-0 p-0"  id="deleteBtn"><i class="fas fa-trash-alt float-right " style="color:red"></i> </button>
+                                    </form>
+                                    
+                                    <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id%>/edit"><i class="far fa-edit  float-right" style="color:blue"></i></a> 
+                                   
+                                    <% } %>
+                                    <span class="float-right pr-3"><%= comment.commentDate%></span>
+                            </div>
+                          
+                           </div>
+
+
+                           <div class="row">
+                               <div class="col-12 mb-2" style="margin-top:-10px">
+                                <span> Rating:</span>
+                                <!-- RATING -->
+
+                                <% if(comment.rating == 1){%>
+                                <span class="fa fa-star "></span>
+                                <% } %>
+
+                                <% if(comment.rating == 2){%>
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star "></span>
+                                    <% } %>
+
+                                    <% if(comment.rating == 3){%>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star "></span>
+                                        <% } %>
+
+                                        <% if(comment.rating == 4){%>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                            <% } %>
+
+                                            <% if(comment.rating == 5){%>
+                                                <span class="fa fa-star "></span>
+                                                <span class="fa fa-star "></span>
+                                                <span class="fa fa-star "></span>
+                                                <span class="fa fa-star "></span>
+                                                <span class="fa fa-star "></span>
+                                                <% } %>
+                               </div>
+                           </div>
+                           <p class="mb-4"><%= comment.text %></p>
+
+                    </div>
+                                
+    
+                    
+                           
+                           
+                        
+                    <% }) %>
+
+                    </div> 
+             
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>
+

@@ -1,0 +1,41 @@
+
+
+.card,.jumbotron{
+box-shadow: 0px 0px 10px black;
+border-radius: 10px;
+}
+
+#showImg,#campImg{
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+#formCont{
+border:rgb(219, 219, 219) solid 0.8px;
+border-radius: 15px;
+box-shadow: 0px 0px 5px black;
+background: rgb(245, 244, 244);
+}
+
+#reviewsBox{
+    height: 300px;
+    overflow-y: auto ;
+    overflow-x:hidden;
+}
+
+#deleteBtn{
+    outline:none;
+    box-shadow:none;
+}
+
+#commentBox{
+    background:rgb(245, 242, 242);
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 6.2px;
+    border: rgb(211, 210, 210) solid 0.5px;
+}
+
+.fa-star{
+color: rgb(241, 241, 85);
+}
